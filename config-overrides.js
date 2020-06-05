@@ -29,10 +29,6 @@ module.exports = function override(config, env) {
         const domain = process.env.BUILD_DOMAIN ? process.env.BUILD_DOMAIN.split(',') : [];
 
         config.plugins.push(
-            new JavaScriptObfuscator({ rotateUnicodeArray: true, domainLock: domain }, [commonJSFilename])
-        );
-
-        config.plugins.push(
             new CompressionPlugin({
                 filename: "[path].gz[query]",
                 algorithm: "gzip",
